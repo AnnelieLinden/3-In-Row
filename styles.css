@@ -1,0 +1,8 @@
+.box {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  
+  flex-wrap: wrap;
+  background-color: rgb(28, 119, 198);
+}
