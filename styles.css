@@ -1,8 +1,83 @@
-.box {
-  width: 20px;
-  height: 20px;
+body {
+  background-color: rgb(7, 89, 129);
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
   display: flex;
-  
+}
+#gameboard {
+  width: 300px;
+  height: 300px;
+  background-color: black;
+  display: flex;
   flex-wrap: wrap;
-  background-color: rgb(28, 119, 198);
+  border: solid 1px black;
+}
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(39, 142, 173);
+  border: solid 2px black;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.circle {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  border: 15px solid blue;
+  box-sizing: border-box;
+}
+.cross {
+  height: 90px;
+  width: 90px;
+  position: relative;
+  transform: rotate(45deg);
+}
+.cross:before, .cross:after {
+  content:"";
+  position:absolute;
+  background-color: red;
+}
+.cross:before {
+  left: 50%;
+  width: 30%;
+  margin-left: -15%;
+  height: 100%;
+}
+.cross:after {
+  top:50%;
+  height: 30%;
+  margin-top: -15%;
+  width: 100%;
+
+}
+header {
+  font-family:'Times New Roman', Times, serif;
+  background-color: rgb(39, 142, 173, 0.7);
+  margin-bottom: 20px;
+}
+p {
+  color: white;
+  font-size: 20px;
+}
+nav>a { 
+  font-size: 20px;
+  margin: 30px;
+  color: white;
+  text-decoration: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+}
+
+
+
+#scoreboard {
+
 }
