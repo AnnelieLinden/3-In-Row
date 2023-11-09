@@ -16,22 +16,32 @@ function createBoard() {
   })
 }
 createBoard()
-//if () {  }
 
-//kolla classList på event.target.
-//Finns det kryss eller cirkel.
-//är den samma som spelarens? plocka bort den, byt inte tur förens 
-//hen lagt sitt kryss eller cirkel på annan ruta.
 function addGo(event) {
+  if (isAllowedToPlace() && event.currentTarget.firstChild == null) {
   const goDisplay = document.createElement('div')
   goDisplay.classList.add(go)
-  event.target.append(goDisplay)
-  //först efter nya funktionen
+  event.currentTarget.append(goDisplay)
   go = go === "circle" ? "cross" : "circle"
   info.textContent = "Nu är det " + go + "."
-  event.target.removeEventListener('click', addGo)
-  checkScore()
+  checkScore() 
+    
+  } else if (!isAllowedToPlace() && event.currentTarget.firstChild?.classList.contains(go)) {
+      info.textContent = "Nu är det " + go + "s tur. Flytta en pjäs."
+      event.currentTarget.firstChild.remove()
+  } 
 }
+function isAllowedToPlace() {
+  let count = 1;
+  const allSquares = document.querySelectorAll('.square')
+  for (i = 0; i < allSquares.length; i++){
+    if (allSquares[i].firstChild?.classList.contains(go)) {
+      count += 1;
+    }
+  }
+  return count<=3
+}
+
 function checkScore() {
   const allSquares = document.querySelectorAll('.square')
   const winningCombos = [
