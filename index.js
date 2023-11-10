@@ -1,10 +1,14 @@
 const gameboard = document.querySelector('#gameboard')
 const info = document.querySelector('#info')
-const scoreboard = document.querySelector('#scoreboard')
+//const players = require('./players.json')
+//const fs = require('fs')
+
 const startCells = ["", "", "", "", "", "", "", "", ""]
 let playerTurn = 1;
 let go = "circle"
 info.textContent = "Cirkel börjar"
+
+
 
 function createBoard() {
   startCells.forEach((_cell, index) => {
@@ -68,6 +72,3 @@ function checkScore() {
     }
   })
 }
-/*createPlayer() {
-  const newPlayer = 
-}*/
