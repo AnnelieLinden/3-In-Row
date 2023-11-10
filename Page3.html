@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skapa ny spelare</title>
   <link rel="stylesheet" href="styles.css">
-<header>
-  <div id="Header">
-    <p>
-    <nav>
-      <a href="page1.html">Spela Luffarschack!</a>
-      <a href="page2.html">Visa matchresultat</a>
-      <a href="page3.html">Ny spelare</a>
-    </nav>
-    </p>
-  </div>
-</header>
+  <header>
+    <div id="Header">
+      <p>
+      <nav>
+        <a href="page1.html">Spela Luffarschack!</a>
+        <a href="page2.html">Visa matchresultat</a>
+        <a href="page3.html">Ny spelare</a>
+      </nav>
+      </p>
+    </div>
+  </header>
+
 <body>
-  <div id="newPlayer">
-    <p id="text"></p>
-    
-  </div>
+
+  <p id="text"></p>
+  <form id="addNewPlayer">
+    <label for="Ny spelare"></label>
+    <input type="text" id="playerName" required>
+    <button>Lägg till</button>
+  </form>
+
+  <!--  <div id="playerList"></div><select> = en dropdownlist-->
   <script src="index3.js"></script>
 </body>
+
 </html>

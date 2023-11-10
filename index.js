@@ -1,7 +1,8 @@
+fetch('players.json')
+
+
 const gameboard = document.querySelector('#gameboard')
 const info = document.querySelector('#info')
-//const players = require('./players.json')
-//const fs = require('fs')
 
 const startCells = ["", "", "", "", "", "", "", "", ""]
 let playerTurn = 1;
@@ -45,7 +46,6 @@ function isAllowedToPlace() {
   }
   return count<=3
 }
-
 function checkScore() {
   const allSquares = document.querySelectorAll('.square')
   const winningCombos = [
@@ -72,3 +72,4 @@ function checkScore() {
     }
   })
 }
+
