@@ -17,7 +17,7 @@ function scores() {
 
   trHead.appendChild(thWinner)
   trHead.appendChild(thLoser)
-  table.appendChild(thRounds)  
+  trHead.appendChild(thRounds)  
   thead.appendChild(trHead)
   table.appendChild(thead)
 
@@ -42,3 +42,7 @@ function leading() {
   leaderboard.appendChild(table)
 }
 leading()
+
+
+//För att HÄMTA localstoarage
+//JSON.parse(localStorage.getItem("players"))

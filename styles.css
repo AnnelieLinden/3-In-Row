@@ -6,13 +6,14 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  display: flex;
+  display: grid;
 }
 #gameboard {
   width: 300px;
   height: 300px;
   background-color: black;
   display: flex;
+  justify-self: center;
   margin: 5px;
   flex-wrap: wrap;
   border: solid 1px black;
@@ -66,6 +67,7 @@ header {
 p {
   color: white;
   font-size: 20px;
+  justify-self: center;
 }
 nav>a { 
   font-size: 20px;
@@ -75,8 +77,30 @@ nav>a {
   flex-direction: column;
   flex-wrap: wrap;
 }
+#playerdrop1 {
+  background-color: black;
+  width: 100px;
+  height: 10px;
+  border: solid black 2px;
 
+}
+#playerdrop2 {
+  background-color: black;
+  width: 100px;
+  height: 10px;
+  border: solid black 2px;
+ 
+}
+#dropDownArea {
+  background-color: rgb(39, 142, 173);
+  width: 400px;
+  height: 40px;
+  border: solid black 2px;
+  justify-self: center;
+  justify-content: space-around;
+}
 
+/*____Sida 2____*/
 
 #scoreboard {
   margin: 10px;
@@ -85,6 +109,9 @@ nav>a {
   background-color: rgb(39, 142, 173);
   border: dotted 5px black;
   color: white;
+}
+.table {
+  border-color: black;
 }
 #leaderboard {
   margin: 10px;
@@ -103,10 +130,17 @@ nav>a {
   margin: 10px;
 }
 
+/*____Sida 3____*/
 
+#decorBox {
+  width: 300px;
+  height: 50px;
+  background-color: rgb(39, 142, 173);
+  justify-self: center;
+}
 #playerList {
   width: 50px;
   height: 50px;
-  background-color: (39, 142, 173);
+  background-color: rgb(39, 142, 173);
 }
 
