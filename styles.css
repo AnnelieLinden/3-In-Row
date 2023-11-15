@@ -2,9 +2,9 @@ body {
   background-color: rgb(7, 89, 129);
   margin: 0;
   padding: 20px;
-  height: 80vh;
+  height: 100%;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   flex-direction: column;
   display: grid;
 }
@@ -62,7 +62,7 @@ header {
   font-family:'Times New Roman', Times, serif;
   background-color: rgb(39, 142, 173, 0.7);
   margin-bottom: 20px; 
-  position: fixed top;
+  width: 100%;
 }
 p {
   color: white;
@@ -77,58 +77,56 @@ nav>a {
   flex-direction: column;
   flex-wrap: wrap;
 }
-#playerdrop1 {
-  background-color: black;
-  width: 100px;
-  height: 10px;
-  border: solid black 2px;
 
-}
-#playerdrop2 {
-  background-color: black;
-  width: 100px;
-  height: 10px;
-  border: solid black 2px;
- 
-}
 #dropDownArea {
   background-color: rgb(39, 142, 173);
-  width: 400px;
-  height: 40px;
+  width: 200px;
+  height: 50px;
   border: solid black 2px;
   justify-self: center;
-  justify-content: space-around;
+  color: white;
 }
 
 /*____Sida 2____*/
 
 #scoreboard {
   margin: 10px;
-  width: 300px;
+  width: 200px;
   height: 400px;
   background-color: rgb(39, 142, 173);
-  border: dotted 5px black;
+  border: solid 2px black;
   color: white;
 }
-.table {
-  border-color: black;
-}
-#leaderboard {
+#playerHistory {
   margin: 10px;
   width: 200px;
   height: 400px;
+  background-color: rgb(39, 142, 173);
+  border: solid 2px black;
+  color: white;
+}
+#leaderboard {
+  margin: 10px;
+  width: 100px;
+  height: 400px;
   background-color: rgb(39, 142, 173);;
-  border: dotted 5px black;
+  border: solid 2px black;
   color: white;
 }
 #section {
-  width: 560px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+#section1 {
+  width:450px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  margin: 10px;
 }
+
 
 /*____Sida 3____*/
 

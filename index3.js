@@ -1,28 +1,29 @@
 const newPlayer = document.querySelector('#newPlayer')
 const text = document.querySelector('#text')
 document.querySelector('#button').addEventListener('click', addPlayer);
+const tempPlayers = localStorage.getItem("players")
+const players = tempPlayers ? JSON.parse(tempPlayers) : [];
 
-
-const players = !!localStorage.getItem("players") ? JSON.parse(localStorage.getItem("players")) : [];
 console.log(players)
 function addPlayer() {
-  //event.preventDefault();   
-  const button = document.getElementById("button");
-  button.addEventListener("click", () => {
-    const playerName = document.getElementById('playername').value;
+  const playerName = document.getElementById('playername').value
+  const matches = JSON.parse(localStorage.getItem("matches"))
+  const playerExist = players.some(players =>
+    players.Name.toLowerCase() === playerName.toLowerCase());
+  if (!playerExist) {
     const player = {
       Name: playerName,
       Score: 0,
     }
-    players.push(player)
-    localStorage.setItem("players", JSON.stringify(players));
-  });
+    text.textContent = "Spelare tillagd i listan"  
+    document.body.appendChild(text) 
+  players.push(player)    
+  } else {
+    text.textContent= "Det finns redan en användare med de namnet. "
+    document.body.appendChild(text)
+
+  }
+
+  localStorage.setItem("players", JSON.stringify(players)) 
 }
-//
 
-addPlayer()
-/**/
-
-
-
-//playerList= forms input type radio
