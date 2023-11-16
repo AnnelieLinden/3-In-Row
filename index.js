@@ -30,7 +30,7 @@ createBoard()
 /*
 Vi vill ha EN knapp för att välja användare som ska spela
 score ska uppdateras vid vinst med find()
-
+forlooparna på match historik för enskilda spelare är ej klara
 */
 function choosePlayers() {
   const players = JSON.parse(localStorage.getItem("players"))
@@ -119,8 +119,6 @@ function isAllowedToPlace() {
 function countRounds() { 
 
 }
-
-
 function checkScore() { 
  
   const allSquares = document.querySelectorAll('.square')
@@ -137,12 +135,16 @@ function checkScore() {
       info.textContent = circleName + " vann!"
       allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
       const match = {
-        winner: circleName + " O",
-        loser: crossName + " X",
+        winner: circleName,
+        loser: crossName,
         rounds: round,
       }; 
       matches.push(match)
       localStorage.setItem("matches", JSON.stringify(matches));
+      const players = JSON.parse(localStorage.getItem("players"))
+      const found = players.find((player) => player.Name === circleName);
+      found.Score += 1;
+      localStorage.setItem("players", JSON.stringify(players));
     }
   })
   winningCombos.forEach(array => {
@@ -153,12 +155,16 @@ function checkScore() {
       info.textContent = crossName + " vann!"
       allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
       const match = {
-        winner: crossName + " X",
-        loser: circleName + " O",
+        winner: crossName,
+        loser: circleName,
         rounds: round,
       };
       matches.push(match)
       localStorage.setItem("matches", JSON.stringify(matches));
+      const players = JSON.parse(localStorage.getItem("players"))
+      const found = players.find((player) => player.Name === crossName);
+      found.Score += 1;
+      localStorage.setItem("players", JSON.stringify(players));
       return
     }
   })

@@ -1,27 +1,32 @@
 const scoreboard = document.querySelector('#scoreboard')
 const leaderboard = document.querySelector('#leaderboard')
 const playerHistory = document.querySelector('#playerHistory')
-
+let wonMatches = [];
+let lostMatches = [];
 
 function scores() {
   const matches = JSON.parse(localStorage.getItem("matches"))
   const table = document.createElement('table')
   const thead = document.createElement('thead')
   const tbody = document.createElement('tbody')
+  const tr = document.createElement('tr')
   const thWinner = document.createElement('th')
   const thLoser = document.createElement('th')
   const thRounds = document.createElement('th')
 
-  
+
   table.appendChild(thead)
-  //syns inte
   table.appendChild(tbody)
   scoreboard.appendChild(table)
+  tr.appendChild(thWinner)
+  tr.appendChild(thLoser)
+  tr.appendChild(thRounds)
+  tbody.appendChild(tr)
 
-  thead.innerText = "Match historik:"
-  thWinner.innerText = "Vinnaren:"
-  thLoser.innerText = "Förloraren: "
-  thRounds.innerText = "Rundor: "
+  thead.innerText = "Match historik: "
+  thWinner.innerText = "Vinnare:"
+  thLoser.innerText = "Förlorare:"
+  thRounds.innerText = "Rundor:"
   for (let match of matches) {
     const playerRow = document.createElement('tr')
     const winner = document.createElement('td')
@@ -57,49 +62,102 @@ function showPlayerHistory() {
   submit.setAttribute('type', 'submit');
   submit.value = 'Välj';
   form.appendChild(label)
-  label.innerText = "Kryss: "
+  label.innerText = "Sök matchresultat för spelare: "
   form.appendChild(select);
   form.appendChild(submit);
   playerHistory.appendChild(form)
 
+  const table = document.createElement('table')
+  const thead = document.createElement('thead')
+  const tbody = document.createElement('tbody')
+  const tr = document.createElement('tr')
+  const thWinner = document.createElement('th')
+  const thLoser = document.createElement('th')
+  const thRounds = document.createElement('th')
+
+  table.appendChild(thead)
+  table.appendChild(tbody)
+  playerHistory.appendChild(table)
+  tr.appendChild(thWinner)
+  tr.appendChild(thLoser)
+  tr.appendChild(thRounds)
+  tbody.appendChild(tr)
+
+  thead.innerText = "Match historik: "
+  thWinner.innerText = "Vinnare:"
+  thLoser.innerText = "Förlorare:"
+  thRounds.innerText = "Rundor:"
+
   form.addEventListener('submit', function (event) {
     event.preventDefault();
-    console.dir(select)
-    console.log(select.selectedIndex);
     const chosenPlayer = select.options[select.selectedIndex].value
-  });
-  for (let match of matches) {
-    //Söka efter chosenPlayer i varje match. 
-  }
-}
+    wonMatches = matches.filter((playerMatch) => playerMatch.winner === chosenPlayer)
+    lostMatches = matches.filter((playerMatch) => playerMatch.loser === chosenPlayer)
+    console.log(wonMatches)
+    console.log(lostMatches)
 
+    for (let wonMatch of wonMatches) {
+      console.log(wonMatch)
+      const playerRow = document.createElement('tr')
+      const theWinner = document.createElement('td')
+      const theLoser = document.createElement('td')
+      const countedRounds = document.createElement('td')
+      theWinner.innerText = wonMatch.winner
+      theLoser.innerText = wonMatch.loser
+      countedRounds.innerText = wonMatch.rounds
+      playerRow.appendChild(theWinner)
+      playerRow.appendChild(theLoser)
+      playerRow.appendChild(countedRounds)
+      tbody.appendChild(playerRow)
+    }
+    for (let lostMatch of lostMatches) {
+      console.log(lostMatch)
+      const playerRow = document.createElement('tr')
+      const theWinner = document.createElement('td')
+      const theLoser = document.createElement('td')
+      const countedRounds = document.createElement('td')
+      theWinner.innerText = lostMatch.winner
+      theLoser.innerText = lostMatch.loser
+      countedRounds.innerText = lostMatch.rounds
+      playerRow.appendChild(theWinner)
+      playerRow.appendChild(theLoser)
+      playerRow.appendChild(countedRounds)
+      tbody.appendChild(playerRow)
+    }
+  });
+}
+showPlayerHistory()
 function leading() {
   const players = JSON.parse(localStorage.getItem("players"))
   const table = document.createElement('table')
   const thead = document.createElement('thead')
   const tbody = document.createElement('tbody')
+  const tr = document.createElement('tr')
   const thName = document.createElement('th')
   const thScore = document.createElement('th')
 
   table.appendChild(thead)
   table.appendChild(tbody)
   leaderboard.appendChild(table)
+  tr.appendChild(thName)
+  tr.appendChild(thScore)
+  tbody.appendChild(tr)
 
   thead.innerText = "Ledande spelare:"
-  //syns inte
   thName.innerText = "Spelare:"
   thScore.innerText = "Poäng:"
-  
+
   for (let player of players) {
     const playerRow = document.createElement('tr')
     const playerName = document.createElement('td')
     const playerScore = document.createElement('td')
     playerName.innerText = player.Name
     playerScore.innerText = player.Score
-    
+
+
     playerRow.appendChild(playerName)
     playerRow.appendChild(playerScore)
     tbody.appendChild(playerRow)
-  }  
+  }
 }
 leading()
