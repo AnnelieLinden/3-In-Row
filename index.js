@@ -14,7 +14,6 @@ info.textContent = "Cirkel börjar";
 const tempMatches = localStorage.getItem("matches")
 const matches = tempMatches ? JSON.parse(tempMatches) : [];
 
-
 function createBoard() {
   startCells.forEach((_cell, index) => {
     const cellElement = document.createElement('div')
@@ -26,12 +25,6 @@ function createBoard() {
 }
 createBoard()
 
-
-/*
-Vi vill ha EN knapp för att välja användare som ska spela
-score ska uppdateras vid vinst med find()
-forlooparna på match historik för enskilda spelare är ej klara
-*/
 function choosePlayers() {
   const players = JSON.parse(localStorage.getItem("players"))
 
@@ -50,7 +43,7 @@ function choosePlayers() {
   submit1.setAttribute('type', 'submit');
   submit1.value = 'Välj';
   form1.appendChild(label1)
-  label1.innerText = " Cirkel: "
+  label1.innerText = "Cirkel: "
   form1.appendChild(opponent1);
   form1.appendChild(submit1);
   dropDownArea.appendChild(form1) 
@@ -115,8 +108,6 @@ function isAllowedToPlace() {
     }
   }
   return count <= 3
-}
-function countRounds() { 
 
 }
 function checkScore() { 
@@ -170,5 +161,7 @@ function checkScore() {
   })
 }
 
-
-
+/*
+EN knapp för att välja användare som ska spela
+media-queries
+*/

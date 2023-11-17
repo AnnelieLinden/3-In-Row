@@ -4,7 +4,6 @@ document.querySelector('#button').addEventListener('click', addPlayer);
 const tempPlayers = localStorage.getItem("players")
 const players = tempPlayers ? JSON.parse(tempPlayers) : [];
 
-console.log(players)
 function addPlayer() {
   const playerName = document.getElementById('playername').value
   const matches = JSON.parse(localStorage.getItem("matches"))

@@ -14,7 +14,6 @@ function scores() {
   const thLoser = document.createElement('th')
   const thRounds = document.createElement('th')
 
-
   table.appendChild(thead)
   table.appendChild(tbody)
   scoreboard.appendChild(table)
@@ -127,6 +126,7 @@ function showPlayerHistory() {
   });
 }
 showPlayerHistory()
+
 function leading() {
   const players = JSON.parse(localStorage.getItem("players"))
   const table = document.createElement('table')
