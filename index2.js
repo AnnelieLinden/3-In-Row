@@ -14,6 +14,7 @@ function scores() {
   const thLoser = document.createElement('th')
   const thRounds = document.createElement('th')
 
+
   table.appendChild(thead)
   table.appendChild(tbody)
   scoreboard.appendChild(table)
@@ -35,7 +36,6 @@ function scores() {
     loser.innerText = match.loser
     rounds.innerText = match.rounds
     playerRow.appendChild(winner)
-
     playerRow.appendChild(loser)
     playerRow.appendChild(rounds)
     tbody.appendChild(playerRow)
