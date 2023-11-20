@@ -51,7 +51,7 @@ function showPlayerHistory() {
   const label = document.createElement('label')
   const select = document.createElement('select')
   form.setAttribute('id', 'playerDrop');
-  select.setAttribute('id', 'playerSelect');
+  select.setAttribute('title', 'playerSelect');
   players.forEach(player => {
     const option = document.createElement('option');
     option.value = player.Name;
@@ -95,6 +95,15 @@ function showPlayerHistory() {
     wonMatches = matches.filter((playerMatch) => playerMatch.winner === chosenPlayer)
     lostMatches = matches.filter((playerMatch) => playerMatch.loser === chosenPlayer)
 
+    tr.appendChild(thWinner)
+    tr.appendChild(thLoser)
+    tr.appendChild(thRounds)
+    tbody.appendChild(tr)
+
+    thead.innerText = "Match historik: "
+    thWinner.innerText = "Vinnare:"
+    thLoser.innerText = "Förlorare:"
+    thRounds.innerText = "Rundor:"
 
     for (let wonMatch of wonMatches) {
       console.log(wonMatch)
@@ -128,6 +137,9 @@ function showPlayerHistory() {
 }
 showPlayerHistory()
 
+function choice() {
+
+}
 function leading() {
   const players = JSON.parse(localStorage.getItem("players"))
   const table = document.createElement('table')

@@ -12,7 +12,6 @@ const players = tempPlayers ? JSON.parse(tempPlayers) : [];
 
 function addPlayer() {
   const playerName = document.getElementById('playername').value
-
   const playerExist = players.some(players =>
     players.Name.toLowerCase() === playerName.toLowerCase());
   if (!playerExist) {
