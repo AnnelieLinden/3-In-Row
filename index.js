@@ -4,6 +4,7 @@ const dropDownArea=document.querySelector('#dropDownArea')
 const playerDrop1 = document.querySelector('#playerdrop1')
 const playerDrop2 = document.querySelector('#playerdrop2')
 
+
 let circleName = "";
 let crossName = "";
 const startCells = ["", "", "", "", "", "", "", "", ""]
@@ -161,7 +162,3 @@ function checkScore() {
   })
 }
 
-/*
-EN knapp för att välja användare som ska spela
-media-queries
-*/

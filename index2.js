@@ -44,6 +44,7 @@ function scores() {
 scores()
 
 function showPlayerHistory() {
+
   const players = JSON.parse(localStorage.getItem("players"))
   const matches = JSON.parse(localStorage.getItem("matches"))
   const form = document.createElement('form');
@@ -89,11 +90,11 @@ function showPlayerHistory() {
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
+    tbody.innerHTML = ""
     const chosenPlayer = select.options[select.selectedIndex].value
     wonMatches = matches.filter((playerMatch) => playerMatch.winner === chosenPlayer)
     lostMatches = matches.filter((playerMatch) => playerMatch.loser === chosenPlayer)
-    console.log(wonMatches)
-    console.log(lostMatches)
+
 
     for (let wonMatch of wonMatches) {
       console.log(wonMatch)
