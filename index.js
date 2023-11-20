@@ -33,7 +33,7 @@ function choosePlayers() {
   const label1 = document.createElement('label')  
   const opponent1 = document.createElement('select')
   form1.setAttribute('id','playerDrop1');
-  opponent1.setAttribute('id','playerSelect1');
+  opponent1.setAttribute('title','opponent1');
   players.forEach(player => {
     const option = document.createElement('option');
     option.value = player.Name;
@@ -61,7 +61,7 @@ function choosePlayers() {
   const label2 = document.createElement('label')  
   const opponent2 = document.createElement('select')
   form2.setAttribute('id', 'playerDrop2');
-  opponent2.setAttribute('id', 'playerSelect2');
+  opponent2.setAttribute('title', 'opponent2');
   players.forEach(player => {
     const option = document.createElement('option');
     option.value = player.Name;

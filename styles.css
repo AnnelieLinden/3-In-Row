@@ -169,6 +169,13 @@ nav>a {
   justify-self: center;
   margin: 10px;
 }
+#allPlayers {
+  width: 100px;
+  color: white;
+}
+label {
+  color: white;
+}
 
 
 @media screen and (max-width: 900px) {
