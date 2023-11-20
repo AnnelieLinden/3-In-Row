@@ -1,13 +1,17 @@
 const newPlayer = document.querySelector('#newPlayer')
 const text = document.querySelector('#text')
 document.querySelector('#button').addEventListener('click', addPlayer);
+const h1 = document.querySelector('#h1')
+h1.textContent = "Börja med att skapa spelare"
+document.body.appendChild(h1)
+
 const tempPlayers = localStorage.getItem("players")
 const players = tempPlayers ? JSON.parse(tempPlayers) : [];
 
 function addPlayer() {
   const playerName = document.getElementById('playername').value
-  const matches = JSON.parse(localStorage.getItem("matches"))
-  //newPlayer.innerText="Skriv ett namn att lägga till:"
+  text.textContent = "Skriv ett namn"
+  document.body.appendChild(text) 
   const playerExist = players.some(players =>
     players.Name.toLowerCase() === playerName.toLowerCase());
   if (!playerExist) {
